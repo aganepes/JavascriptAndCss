@@ -1,0 +1,41 @@
+*{
+    margin:0px;
+    padding:0px;
+    box-sizing:box-border;
+}
+body{
+    display:flex;
+    justify-content: center;
+}
+.contianer{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+.box{
+    background-color: chartreuse;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    font-style: italic;
+    font-weight: 600;
+    color: rgb(81, 81, 82);
+    width: 250px;
+    height: 160px;
+    margin-top:20px;
+    border-radius: 20px;
+    position: relative;
+    transform: translateX(300%);
+    transition: all 0.5s ease-in-out;
+}
+.box:nth-of-type(even){
+    transform: translateX(-300%);
+}
+.box.show{
+    transform: translateX(0);
+}
+
