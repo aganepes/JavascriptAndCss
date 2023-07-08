@@ -1,0 +1,45 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background-color: cadetblue;
+    overflow: hidden;
+}
+
+button{
+    font-size: 20px;
+    letter-spacing: 5px;
+    background-color: blueviolet;
+    border: 0;
+    padding:20px 30px;
+    border-radius: 5px;
+    color: aliceblue;
+    text-transform: uppercase;
+    box-shadow: 3px 0 6px rgba(0, 0, 0, 0.445);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+button .circle{
+    background-color:rgba(255, 255, 255, 0.664) ;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position:absolute;
+    transform:translate(-50% , -50%) scale(0);
+    animation: ripple 0.5s ease-in-out;
+}
+
+@keyframes ripple {
+    to{
+        transform:translate(-50% , -50%) scale(3);
+        opacity: 0;
+    }
+}
