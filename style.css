@@ -1,0 +1,89 @@
+:root{
+    --text-shadow-color:#53515180; 
+    --bg-color:#e6e6c8;
+    --primary-bg:#01d0ff;
+    --secondary-bg:#005fc0;
+    --box-size:100px;
+    --circle-size:calc( var(--box-size) / 10 );
+    --font-size:calc( var(--box-size) / 100 * 16);
+}
+
+body{
+    background-color:var(--bg-color);
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loading-container{
+    width: var(--box-size);
+    height: var(--box-size);
+    border-radius: 50%;
+    position: relative;
+}
+.loading-content{
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: var(--font-size);
+    letter-spacing: calc(var(--font-size) / 10);
+    font-weight: bold;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-transform: uppercase;
+    animation: pulse 1.5s ease-in-out infinite alternate;
+    color:var(--text-shadow-color);
+}
+
+@keyframes pulse{
+  from {
+    color:var(--primary-bg);
+    text-shadow: 0 0 calc(var(--box-size) / 30) var(--secondary-bg), 
+    0 0 calc(var(--box-size) / 20) var(--primary-bg);
+  }
+  to {
+    color:var(--secondary-bg);
+    text-shadow: 0 0 calc(var(--box-size) / 10) var(--text-shadow-color);
+  }
+}
+
+.circles{
+    width: 100%;
+    height: 100%;
+    animation: spin 3s infinite;
+    position: relative;
+}
+.circle{
+    position:absolute;
+    z-index: var(--i);
+    width: calc( var(--circle-size) / 20  * var(--i));
+    height: calc( var(--circle-size) / 20 * var(--i));
+    --container-middle:calc( var(--box-size) / 2 );
+    transform-origin: var(--container-middle) var(--container-middle);
+    transform: rotateZ(calc(var(--i) * 18deg));
+    border-radius: 50%;
+    background-color: white;
+    --shadow-size:calc( var(--circle-size) / 3  * var(--i) / 20);
+    box-shadow: 0 0 calc( var(--shadow-size) * 4 ) calc( var(--shadow-size) * 2 ) var(--secondary-bg), inset 0 0 var(--shadow-size) calc( var(--shadow-size) * .5) var(--primary-bg);
+}
+
+@keyframes spin {
+  from{
+    transform: rotateZ(0deg);
+  }
+  to{
+    transform: rotateZ(360deg);
+  }
+} 
+
+
+@media (prefers-color-scheme: dark){
+    :root{
+      --text-shadow-color:#f1eaea;
+      --bg-color:black;
+      --primary-bg:#01d0ff;
+      --secondary-bg:#005fc0;
+    }
+}
