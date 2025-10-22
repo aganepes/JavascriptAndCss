@@ -1,0 +1,39 @@
+*{
+    margin: 0px;
+}
+body{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: aliceblue;
+}
+#cont{
+    display: flex;
+    flex-direction: column;
+    border:1px solid black
+}
+#cont .row{
+    display: flex;
+    flex-direction: row;
+}
+#cont .row .cell{
+    width: 40px;
+    height: 40px;
+    border:1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: larger;
+    transition: all 200ms;
+}
+#cont .row .cell:hover{
+    background-color: rgb(79, 197, 197);
+    cursor: pointer;
+    font-weight: bold;
+}
+.fill-cell{
+    background-color: rgb(79, 197, 197);
+    font-weight: bold;
+}

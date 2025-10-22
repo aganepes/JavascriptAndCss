@@ -1,17 +1,44 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 body{
-    background-color: darkgoldenrod;
+    background-image: url('https://avatars.githubusercontent.com/u/82721519?v=4');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
+    backdrop-filter: blur(50px);
     overflow: hidden;
+}
+.title-container{
+    width: 80%;
+    margin-bottom: 20px;
+    margin-left:10px;
+}
+.title-container ul{
+    padding: none;
+    list-style: none;
+}
+.title-container li{
+    font-size: medium;
+}
+li h4{
+    display: inline;
 }
 .img{
     width: 80%;
-    height: 80%;
-    background-color: blue;
+    height: 300px;
     border-radius: 20px;
-    box-shadow: 10px 0px 15px black;
+    box-shadow: 0px 0px 10px 5px rgb(12, 11, 11);
+    background-image: url('https://avatars.githubusercontent.com/u/82721519?v=4');
     background-repeat: no-repeat;
     background-position: center;
+    background-size: cover;
 }

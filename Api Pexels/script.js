@@ -7,7 +7,28 @@ fetch("https://api.pexels.com/v1/search?query=people",{
      return resp.json()
    })
    .then(data => {
-     const img=document.querySelector('.img');
-     img.style.backgroundImage=`url(${data.photos[0].src.medium})`;
-    //  img.innerHTML=`<img src="${data.photos[14].src.medium}" alt="men">`
+      const source =[];
+      
+     for(let photo of data.photos){
+        const ulContent=`<li><h4>Autor:</h4> ${photo.photographer}</li>
+        <li><h4>Autor address:</h4> ${photo.photographer_url}</li>
+        <li><h4>Photo discription:</h4> ${photo.alt} </li>
+        <li><h4>Width:</h4>${photo.width}px </li>
+        <li><h4>Height:</h4>${photo.height}px</li>`;
+        
+        let backgroundImage=photo.src.medium; 
+        
+        source.push({ulContent,backgroundImage});
+     }
+     setInterval(()=>{
+        const randomIndex=Math.floor (Math.random() * source.length);
+        const {ulContent,backgroundImage}=source[randomIndex];
+
+        document.querySelector('.title-container ul').innerHTML=ulContent;
+
+        document.querySelector('.img').style.backgroundImage=`url("${backgroundImage}")`;
+
+        document.querySelector('body').style.backgroundImage=`url("${backgroundImage}")`;
+
+     },10000);
    })
