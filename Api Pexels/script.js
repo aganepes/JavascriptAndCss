@@ -4,7 +4,7 @@ fetch("https://api.pexels.com/v1/search?query=people",{
   }
 })
    .then(resp => {
-     return resp.json()
+     return resp.json();
    })
    .then(data => {
       const source =[];

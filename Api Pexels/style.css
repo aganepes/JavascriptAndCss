@@ -25,16 +25,21 @@ body{
 .title-container ul{
     padding: none;
     list-style: none;
+    color:#ffffff;
 }
 .title-container li{
     font-size: medium;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 li h4{
     display: inline;
+    margin-right: 10px;
 }
 .img{
     width: 80%;
-    height: 300px;
+    height: 400px;
     border-radius: 20px;
     box-shadow: 0px 0px 10px 5px rgb(12, 11, 11);
     background-image: url('https://avatars.githubusercontent.com/u/82721519?v=4');
