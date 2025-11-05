@@ -11,5 +11,6 @@ let boxAnimation=()=>{
         }
     })
 }
+
+boxAnimation();
 window.addEventListener('scroll', boxAnimation);
-boxAnimation()
