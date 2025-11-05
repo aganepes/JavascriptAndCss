@@ -22,11 +22,12 @@ arrowLeft.addEventListener('click',()=>{
     SliderCount--;
     if(SliderCount<0) SliderCount=backgroundImages.length-1;
     setBackground(SliderCount);
-})
+});
 arrowRight.addEventListener('click',()=>{
     SliderCount++;
     if(SliderCount>backgroundImages.length-1) SliderCount=0;
     setBackground(SliderCount);
     console.log(SliderCount)
-})
+});
+
 setBackground(SliderCount);
