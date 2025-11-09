@@ -1,39 +1,52 @@
 class NoteCard extends HTMLElement {
-    constructor() {
-        super();
+  constructor() {
+    super();
+  }
+  static get observedAttributes() {
+    return ["title-text", "content", "style", "headBackgroundColor"];
+  }
+  connectedCallback() {
+    if (!this.hasChildNodes()) {
+      const template = document.querySelector("#note-card");
+      const clonedContent = template.content.cloneNode(true);
+      this.appendChild(clonedContent);
 
-        this.attachShadow({ mode: "open" });
-
-        const template = document.querySelector('#note-card');
-        const clonedContent = template.content.cloneNode(true);
-
-        this.shadowRoot.appendChild(clonedContent);
-
-        this.shadowRoot.querySelector("#title").textContent = this.getAttribute('title-text');
-        this.shadowRoot.querySelector('#content').textContent = this.getAttribute('content');
+      this.querySelector("#title").textContent =
+        this.getAttribute("title-text");
+      this.querySelector("#content").textContent = this.getAttribute("content");
+      this.querySelector(".card .title").style.backgroundColor =
+        this.getAttribute("headBackgroundColor");
+      console.log(this.getAttribute("headBackgroundColor"));
+      this.querySelector("#remove").addEventListener("click", () =>
+        this.remove()
+      );
     }
-    static get observedAttributes() {
-        return ["title-text", "content", "style"];
+  }
+  attributeChangedCallback(name, oldValue, newValue) {
+    if (name === "title-text" && oldValue != newValue) {
+      this.querySelector("#title").textContent = newValue;
     }
-    connectedCallback() {
-        this.shadowRoot.querySelector("#remove").addEventListener('click', () => this.remove());
+    if (name === "content" && oldValue != newValue) {
+      this.querySelector("#content").textContent = newValue;
     }
-    attributeChangedCallback(name, oldValue, newValue) {
-        if (name == 'title-text' && oldValue != newValue) {
-            this.shadowRoot.querySelector("#title").textContent = newValue;
-        }
-
-        if (name == 'content' && oldValue != newValue) {
-            this.shadowRoot.querySelector("#content").textContent = newValue;
-        }
-        if (name == 'style' && oldValue != newValue) {
-            this.shadowRoot.querySelector(".card").style.top = this.style.top;
-            this.shadowRoot.querySelector(".card").style.left = this.style.left;
-        }
+    if (name === "headBackgroundColor" && oldValue != newValue) {
+      this.querySelector(".title").style.backgroundColor = newValue;
     }
-    disconnectedCallback() {
-        this.shadowRoot.querySelector("#remove").removeEventListener('click', () => this.remove());
+    if (name === "style" && oldValue != newValue) {
+      const card = this.querySelector(".card");
+      if (!card) return;
+      // card.style.position = "fixed";//fixed
+      // card.style.top = this.style.top;
+      // card.style.left = this.style.left;
+      card.style.backgroundColor = this.style.backgroundColor;
+      // card.style.zIndex = this.style.zIndex;
     }
+  }
+  disconnectedCallback() {
+    this.querySelector("#remove").removeEventListener("click", () =>
+      this.remove()
+    );
+  }
 }
 
 export default NoteCard;

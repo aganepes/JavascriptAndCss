@@ -1,16 +1,14 @@
-
-let newX = 0,
-  newY = 0,
-  startX = 0,
-  startY = 0;
+let startX = 0, startY = 0;
+let newX = 0, newY = 0;
 let draggedElement = null;
 
-
 function mouseDown(e) {
+  // Find the note-card element - handle shadow DOM clicks
   draggedElement = e.target.closest('note-card');
-  
+
   if (!draggedElement) return;
-  
+
+  // Get initial mouse position
   startX = e.clientX;
   startY = e.clientY;
 
@@ -19,29 +17,20 @@ function mouseDown(e) {
 }
 
 function mouseMove(e) {
-  if (!draggedElement) return;
-  
-  newX = startX - e.clientX;
-  newY = startY - e.clientY;
+  // Calculate mouse movement delta from initial position
+  newX = e.clientX - startX;
+  newY = e.clientY - startY;
 
   startX = e.clientX;
   startY = e.clientY;
 
-  const card = draggedElement.shadowRoot.querySelector('.card');
-  
-  if (!card) return;
-
-  const currentTop = parseInt(card.style.top) || card.offsetTop || 0;
-  const currentLeft = parseInt(card.style.left) || card.offsetLeft || 0;
-  
-  const newTop = currentTop - newY;
-  const newLeft = currentLeft - newX;
-  
-  card.style.top = newTop + "px";
-  card.style.left = newLeft + "px";
+  // Set position on the .card element
+  draggedElement.style.top = parseInt(draggedElement.style.top) + newY + "px";
+  draggedElement.style.left = parseInt(draggedElement.style.left) + newX + "px";
+  console.log(draggedElement.style.top,draggedElement.style.left);
 }
 
-function mouseUp(e) {
+function mouseUp() {
   document.removeEventListener("mousemove", mouseMove);
   draggedElement = null;
 }
