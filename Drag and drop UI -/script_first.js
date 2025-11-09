@@ -1,7 +1,7 @@
-const items = document.getElementsByClassName('item')
+const items = document.getElementsByClassName('item');
 
 let itemsLength=items.length
-let itemHeight=50
+let itemHeight=items[0].clientHeight;
 
 let isDragging=false
 let index=null

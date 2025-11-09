@@ -1,0 +1,40 @@
+*{
+    padding:0;
+    margin: 0;
+}
+#container{
+    position: relative;
+    /* display: flex;
+    width: 100%;
+    flex-wrap: wrap; */
+}
+.item{
+    list-style: none;
+    width:250px;
+    margin:10px;
+    background-color: #289494;
+    border:1px solid #275858;
+    padding:1rem;
+    border-radius: 10px;
+    user-select: none;
+    color:#ffffff;
+    box-shadow: 0 0 10px 0 #000000;
+    text-align: center;
+    font-size: 1.2rem;
+    transition: all .3s ease-out;
+    cursor: grab;
+}
+.item p{
+    margin-top:1em;
+}
+.dragging{
+    background-color: #5252cf;
+    border-color:black;
+    position: absolute;
+    z-index: 10;
+    cursor: no-drop;
+}
+.selected{
+    z-index: 20;
+}
+

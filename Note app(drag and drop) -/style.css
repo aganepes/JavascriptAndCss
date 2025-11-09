@@ -1,0 +1,184 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.notes-container{
+    height: 100vh;
+    background-color: #212228;
+    background-image: linear-gradient(#292a30 .1em, transparent .1em),
+    linear-gradient(90deg, #292a30 .1em, transparent .1em);
+    background-size: 4em 4em;
+    position: relative;
+    overflow: hidden;
+}
+/* card elements */
+.card {
+    width:250px;
+    opacity: .5;
+    transform: translate(-2000px,-1000px);
+    background-color:#afda9f;
+    color:#333333;
+    border-radius:5px;
+    cursor:pointer;
+    position: fixed;
+    left:20px;
+    top:20px;
+    overflow: hidden;
+    animation-name: create-card;
+    animation-delay: 500ms;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease;
+}
+@keyframes create-card{
+    30%{
+        transform: translate(0,0);
+        opacity: .8;
+    }
+    70%{
+        transform: translate(-500px,-500px);
+        opacity: .9;
+    }
+    100%{
+        transform: translate(0,0);
+        opacity: 1;
+    }
+}
+.card .title{
+    background-color: #98c288;
+    box-shadow: 0 1px 2px 0px gray;
+    padding:5px 10px;
+    padding-right: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+.card .title-content{
+    font-weight: 600;
+}
+.card .content{
+    padding:10px;
+    text-align: justify;
+    
+}
+.title svg{
+    fill:#333333;
+    transition: color .3s ease-in-out;
+}
+.title svg:hover{
+    fill:#000000;
+}
+/* menu elements */
+.menus-container{
+    position: absolute;
+    left:20px;
+    top:50vh;
+    z-index:100;
+    background-color: #4d4c4c;
+    display: flex;
+    flex-direction: column;
+    gap:.5rem;
+    padding:10px;
+    border-radius:50px;
+}
+
+.menus-container .add-button{
+    color:#f5f0f0;
+    font-weight: bold;
+    font-size:2rem;
+    background-color:gray;
+    border-radius:50%;
+    text-align: center;
+    transition: all .4s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.menus-container .add-button:hover{
+    background-color: white;
+    color:black;
+}
+.menus-container div{
+    width: 30px;
+    height: 30px;
+    border-radius:50%;
+    cursor: pointer;
+}
+.menus-container .color.active, .menus-container .color:hover{
+    box-shadow: 0 0 10px 0 #c2bdbd;
+}
+
+/* edit elements */
+.edit-background{
+    display: none;
+    position: absolute;
+    z-index:199;
+    width:100vw;
+    height:100vh;
+    backdrop-filter: blur(2px);
+}
+.edit-container{
+    display: none;
+    position: absolute;
+    top:50%;
+    left:50%;
+    z-index:200;
+    transform: translate(-50%,-50%);
+    color:white;
+    width:350px;
+    padding:10px;
+    background-color:#333333;
+    border-radius: 10px;
+    flex-direction: column;
+    gap:1rem;
+    align-items: center;
+}
+.edit-container button{
+    padding:5px;
+    border:none;
+    outline: none;
+    border-radius: 5px;
+    cursor:pointer;
+    font-size: .8rem;
+}
+.edit-container > .close-edit{
+    align-self: end;
+    font-size: large;
+    color:rgb(255, 0, 0);
+    font-weight: bold;
+    padding:0;
+    background-color: transparent;
+}
+.edit-container .input-elements{
+    display: flex;
+    flex-direction: column;
+    gap:1rem;
+    width: 100%;
+    padding:10px
+}
+.edit-container input, .edit-container textarea {
+    margin-top: 5px;
+    width: 100%;
+    outline: none;
+    border:none;
+    padding:5px;
+    border-radius: 5px;
+    resize: none;
+    background-color: #4d4c4c;
+    color:white
+}
+.edit-container input::placeholder, .edit-container textarea::placeholder{
+    color:gray;
+}
+.edit-container .buttons button{
+    background-color: gray;
+    color:white;
+    padding:5px 10px;
+    margin-right:20px;
+    font-size: 1rem;
+    transition: all .5s ease-in-out;
+}
+.edit-container .buttons button:hover{
+    color:white;
+    background-color: #292a30;
+}
