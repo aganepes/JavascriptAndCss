@@ -1,29 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="./public/notes.svg">
+    <link rel="icon" type="image/png" href="./public/notes.png">
+    <link rel="shortcut icon" href="./public/notes.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Drag and Drop</title>
+    <title>Notes</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div class="notes-container">
-        <note-card title="Aganepes" content=`5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z`></note-card>
-        <!-- <div class="card">
-            <div class="title">
-                <p class="title-content">Aganepes</p>
-                <svg height="20px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
-                    <path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"/>
-                </svg>
-            </div>
-            <p class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis praesentium laborum delectus obcaecati repellendus quam, minus libero quasi maiores iste.</p>
-        </div> -->
         <div class="menus-container">
-            <div class="add-button"><p>+</p></div>
-            <div class="color" style="background-color: aqua;" data-name=""></div>
-            <div class="color" style="background-color: aqua;" data-name=""></div>
-            <div class="color" style="background-color: aqua;" data-name=""></div>
-            <div class="color active" style="background-color: aqua;" data-name=""></div>
+            <div class="add-button">
+                <p>+</p>
+            </div>
         </div>
         <div class="edit-background"></div>
         <div class="edit-container">
@@ -43,81 +36,100 @@
                 <button class="close-edit">close</button>
             </div>
         </div>
+        <!-- note cards will be added here -->
     </div>
-    
+
     <template id="note-card">
         <style>
-            /* card elements */
-            *{
-                padding:0;
+            * {
+                padding: 0;
             }
+
             .card {
-                width:250px;
-                opacity: 1;
-                /* transform: translate(-2000px,-1000px); */
-                background-color:#afda9f;
-                color:#333333;
-                border-radius:5px;
-                cursor:pointer;
+                width: 250px;
+                color: #333333;
+                border-radius: 5px;
+                cursor: pointer;
                 position: fixed;
-                left:20px;
-                top:20px;
                 overflow: hidden;
-                animation-name: create-card;
-                animation-delay: 500ms;
+                animation-name: card-animation;
+                animation-duration: 500ms;
                 animation-fill-mode: forwards;
-                animation-timing-function: ease;
+                animation-timing-function: ease-in-out;
             }
-            /* @keyframes create-card{
-                30%{
-                    transform: translate(0,0);
+            @keyframes card-animation {
+                0% {
+                    left: -20px;
+                    top: -20px;
+                    opacity: .7;
+                }
+
+                30% {
+                    left: 20px;
+                    top: 20px;
                     opacity: .8;
                 }
-                70%{
-                    transform: translate(-500px,-500px);
+
+                70% {
+                    left: 10px;
+                    top: 10px;
                     opacity: .9;
                 }
-                100%{
-                    transform: translate(0,0);
+
+                100% {
+                    left: 20px;
+                    top: 20px;
                     opacity: 1;
                 }
-            } */
-            .card .title{
-                background-color: #98c288;
+            }
+
+            .card .title {
                 box-shadow: 0 1px 2px 0px gray;
-                padding:5px;
+                padding: 5px;
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
                 height: 30px;
             }
-            .card .title-content{
+
+            .card .title-content {
                 font-weight: 600;
-                padding:0;
+                padding: 0;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+                width: 100%;
+                text-align: left;
             }
-            .card .content{
-                padding:10px;
+
+            .card .content {
+                padding: 10px;
                 text-align: justify;
-                
+
             }
-            .title svg{
-                fill:#333333;
+
+            .title svg {
+                fill: #333333;
                 transition: color .3s ease-in-out;
             }
-            .title svg:hover{
-                fill:#000000;
+
+            .title svg:hover {
+                fill: #000000;
             }
         </style>
         <div class="card">
             <div class="title">
                 <p class="title-content" id="title">Aganepes</p>
                 <svg id="remove" height="20px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
-                    <path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"/>
+                    <path
+                        d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z" />
                 </svg>
             </div>
-            <p class="content" id="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis praesentium laborum delectus obcaecati repellendus quam, minus libero quasi maiores iste.</p>
+            <p class="content" id="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis
+                praesentium laborum delectus obcaecati repellendus quam, minus libero quasi maiores iste.</p>
         </div>
     </template>
 </body>
 <script src="script/index.js" type="module"></script>
+
 </html>

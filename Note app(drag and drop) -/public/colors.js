@@ -23,21 +23,6 @@ const colors=[
     "color_id": "lavender",
     "backgroundColor": "#E6E6FA",
     "headBackground": "#c6c6d8"
-  },
-  {
-    "color_id": "peach",
-    "backgroundColor": "#FFDAB9",
-    "headBackground": "#e0c0a0"
-  },
-  {
-    "color_id": "cyan",
-    "backgroundColor": "#AFEEEE",
-    "headBackground": "#96d0d0"
-  },
-  {
-    "color_id": "gray",
-    "backgroundColor": "#D3D3D3",
-    "headBackground": "#b8b8b8"
   }
 ]
 

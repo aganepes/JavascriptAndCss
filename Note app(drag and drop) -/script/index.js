@@ -1,12 +1,12 @@
 import Colors from "../public/colors.js";
+import "./toCreateColorMenu.js";
 import NoteCard from "./component.js";
 import mouseDown from "./mouseDown.js";
 
-let zIndex = 0;
 // define note-card element
 window.customElements.define("note-card", NoteCard);
 
-// color button
+// add event listener to color buttons
 const colorButtons = document.querySelectorAll(".menus-container .color");
 
 colorButtons.forEach((element, _, elements) => {
@@ -16,7 +16,7 @@ colorButtons.forEach((element, _, elements) => {
   });
 });
 
-// close button
+// add event listener to close button
 const editContainer = document.querySelector(".edit-container");
 const editBackgroundsElement = document.querySelector(".edit-background");
 
@@ -27,7 +27,7 @@ document.querySelectorAll(".edit-container .close-edit").forEach((button) => {
   });
 });
 
-// add button
+// add event listener to add button
 const addButton = document.querySelector(".menus-container .add-button");
 
 addButton.addEventListener("click", () => {
@@ -35,33 +35,47 @@ addButton.addEventListener("click", () => {
   editBackgroundsElement.style.display = "block";
 });
 
-// input element
+// get input elements
 const titleInput = document.querySelector(".edit-container #title");
 const contentInput = document.querySelector(".edit-container #description");
 
-// ok button
+// get ok button
 const okButton = document.querySelector(".edit-container .ok-edit");
-const noteContainer = document.querySelector(".notes-container");
 
+// get note container
+const noteContainer = document.querySelector(".notes-container");
+let zIndex = 0;
+// add event listener to ok button
 okButton.addEventListener("click", () => {
-  // close to edit element
+  // close edit element
   editContainer.style.display = "none";
   editBackgroundsElement.style.display = "none";
 
-  // get value of input element
+  // get values of input elements
   const titleNote = titleInput.value;
+  titleInput.value = "";
   const contentNote = contentInput.value;
+  contentInput.value = "";
+  if(!titleNote || !contentNote ) return ;
 
-  // add element to note container
+  // create note card element
   const noteElement = document.createElement("note-card");
-  noteElement.setAttribute("title",titleNote);
-  noteElement.setAttribute("content",contentNote);
+  noteElement.setAttribute("title-text", titleNote);
+  noteElement.setAttribute("content", contentNote);
+  // append note card to note container
   noteContainer.append(noteElement);
+  // add event listener to note card
   noteElement.addEventListener("mousedown", mouseDown);
+  // add z-index to note card
   zIndex++;
   noteElement.style.zIndex = zIndex;
-});
 
-// add to the mousedown event
-const cards = document.querySelectorAll('note-card');
-document.querySelector('note-card').addEventListener("mousedown",mouseDown);
+  // get active color
+  const activeColor = document.querySelector(".menus-container .color.active");
+  const colorId = activeColor.getAttribute("data-name");
+  const color = Colors.find((color) => color.color_id === colorId);
+
+  // add color to note card
+  noteElement.shadowRoot.querySelector(".card").style.backgroundColor = color.backgroundColor;
+  noteElement.shadowRoot.querySelector(".card .title").style.backgroundColor = color.headBackground;
+});

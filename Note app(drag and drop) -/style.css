@@ -13,63 +13,9 @@
     position: relative;
     overflow: hidden;
 }
-/* card elements */
-.card {
-    width:250px;
-    opacity: .5;
-    transform: translate(-2000px,-1000px);
-    background-color:#afda9f;
-    color:#333333;
-    border-radius:5px;
-    cursor:pointer;
-    position: fixed;
-    left:20px;
-    top:20px;
-    overflow: hidden;
-    animation-name: create-card;
-    animation-delay: 500ms;
-    animation-fill-mode: forwards;
-    animation-timing-function: ease;
-}
-@keyframes create-card{
-    30%{
-        transform: translate(0,0);
-        opacity: .8;
-    }
-    70%{
-        transform: translate(-500px,-500px);
-        opacity: .9;
-    }
-    100%{
-        transform: translate(0,0);
-        opacity: 1;
-    }
-}
-.card .title{
-    background-color: #98c288;
-    box-shadow: 0 1px 2px 0px gray;
-    padding:5px 10px;
-    padding-right: 5px;
-    display: flex;
-    justify-content: space-between;
-}
-.card .title-content{
-    font-weight: 600;
-}
-.card .content{
-    padding:10px;
-    text-align: justify;
-    
-}
-.title svg{
-    fill:#333333;
-    transition: color .3s ease-in-out;
-}
-.title svg:hover{
-    fill:#000000;
-}
 /* menu elements */
 .menus-container{
+    user-select: none;
     position: absolute;
     left:20px;
     top:50vh;
