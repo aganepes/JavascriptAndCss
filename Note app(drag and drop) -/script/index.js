@@ -56,7 +56,7 @@ okButton.addEventListener("click", () => {
   titleInput.value = "";
   const contentNote = contentInput.value;
   contentInput.value = "";
-  if(!titleNote || !contentNote ) return ;
+  if (!titleNote || !contentNote) return;
 
   // create note card element
   const noteElement = document.createElement("note-card");
@@ -66,19 +66,16 @@ okButton.addEventListener("click", () => {
   noteElement.setAttribute("content", contentNote);
   noteElement.setAttribute("title-text", titleNote);
   // add event
-  noteElement.addEventListener('mousedown',mouseDown);
+  noteElement.addEventListener("mousedown", mouseDown);
   // add z-index to note card
   zIndex++;
   noteElement.style.zIndex = zIndex;
-  noteElement.style.top="20px";
-  noteElement.style.left="20px";
-  
+
   // get active color
   const activeColor = document.querySelector(".menus-container .color.active");
   const colorId = activeColor.getAttribute("data-name");
   const color = Colors.find((color) => color.color_id === colorId);
-
   // add color to note card
-  noteElement.setAttribute("headBackgroundColor", color.headBackground);
-  noteElement.style.backgroundColor=color.backgroundColor;
+  noteElement.querySelector(".card .title").style.backgroundColor = color.headBackground;
+  noteElement.style.backgroundColor = color.backgroundColor;
 });

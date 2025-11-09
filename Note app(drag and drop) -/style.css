@@ -13,80 +13,6 @@
     overflow: hidden;
     position: relative;
 }
-/* card */
-.card {
-    width: 250px;
-    color: #333333;
-    box-shadow: 0 0 10px 0 gray;
-    border-radius: 5px;
-    cursor: pointer;
-    position: fixed;
-    overflow: hidden;
-    animation-name: card-animation;
-    animation-duration: 500ms;
-    animation-fill-mode: forwards;
-    animation-timing-function: ease-in-out;
-}
-
-@keyframes card-animation {
-    0% {
-        left: -20px;
-        top: -20px;
-        opacity: .7;
-    }
-
-    30% {
-        left: 20px;
-        top: 20px;
-        opacity: .8;
-    }
-
-    70% {
-        left: 10px;
-        top: 10px;
-        opacity: .9;
-    }
-
-    100% {
-        left: 20px;
-        top: 20px;
-        opacity: 1;
-    }
-}
-
-.card .title {
-    box-shadow: 0 1px 2px 0px gray;
-    padding: 5px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 30px;
-}
-
-.card .title-content {
-    font-weight: 600;
-    padding: 0;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-    width: 100%;
-    text-align: left;
-}
-
-.card .content {
-    padding: 10px;
-    text-align: justify;
-
-}
-
-.title svg {
-    fill: #333333;
-    transition: color .3s ease-in-out;
-}
-
-.title svg:hover {
-    fill: #000000;
-}
 /* menu elements */
 .menus-container{
     user-select: none;
@@ -202,4 +128,75 @@
 .edit-container .buttons button:hover{
     color:white;
     background-color: #292a30;
+}
+
+
+
+
+.card {
+    width: 250px;
+    color: #333333;
+    box-shadow: 0 0 10px 0 gray;
+    border-radius: 5px;
+    cursor: pointer;
+    position: fixed;
+    left: 20px;
+    top: 20px;
+    opacity: 1;
+    animation-name: card-animation;
+    animation-duration: 500ms;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes card-animation {
+    30% {
+        left: 20px;
+        top: 20px;
+        opacity: .8;
+    }
+
+    70% {
+        left: 10px;
+        top: 10px;
+        opacity: .9;
+    }
+
+    100% {
+        left: 20px;
+        top: 20px;
+        opacity: 1;
+    }
+}
+
+.card .title {
+    box-shadow: 0 1px 2px 0px gray;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 30px;
+}
+
+.card .title-content {
+    font-weight: 600;
+    padding: 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 100%;
+    text-align: left;
+}
+
+.card .content {
+    padding: 10px;
+    text-align: justify;
+}
+
+.title svg {
+    fill: #333333;
+    transition: color .3s ease-in-out;
+}
+
+.title svg:hover {
+    fill: #000000;
 }

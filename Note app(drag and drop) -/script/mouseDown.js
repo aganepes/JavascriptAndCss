@@ -4,7 +4,7 @@ let draggedElement = null;
 
 function mouseDown(e) {
   // Find the note-card element - handle shadow DOM clicks
-  draggedElement = e.target.closest('note-card');
+  draggedElement = e.target.closest('.card');
 
   if (!draggedElement) return;
 
@@ -25,9 +25,8 @@ function mouseMove(e) {
   startY = e.clientY;
 
   // Set position on the .card element
-  draggedElement.style.top = parseInt(draggedElement.style.top) + newY + "px";
-  draggedElement.style.left = parseInt(draggedElement.style.left) + newX + "px";
-  console.log(draggedElement.style.top,draggedElement.style.left);
+  draggedElement.style.top = draggedElement.offsetTop + newY + "px";
+  draggedElement.style.left = draggedElement.offsetLeft + newX + "px";
 }
 
 function mouseUp() {

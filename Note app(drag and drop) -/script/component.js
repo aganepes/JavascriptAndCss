@@ -10,14 +10,12 @@ class NoteCard extends HTMLElement {
       const template = document.querySelector("#note-card");
       const clonedContent = template.content.cloneNode(true);
       this.appendChild(clonedContent);
-
+      
       this.querySelector("#title").textContent =
         this.getAttribute("title-text");
       this.querySelector("#content").textContent = this.getAttribute("content");
-      this.querySelector(".card .title").style.backgroundColor =
-        this.getAttribute("headBackgroundColor");
-      console.log(this.getAttribute("headBackgroundColor"));
-      this.querySelector("#remove").addEventListener("click", () =>
+      
+        this.querySelector("#remove").addEventListener("click", () =>
         this.remove()
       );
     }
@@ -35,11 +33,8 @@ class NoteCard extends HTMLElement {
     if (name === "style" && oldValue != newValue) {
       const card = this.querySelector(".card");
       if (!card) return;
-      // card.style.position = "fixed";//fixed
-      // card.style.top = this.style.top;
-      // card.style.left = this.style.left;
       card.style.backgroundColor = this.style.backgroundColor;
-      // card.style.zIndex = this.style.zIndex;
+      card.style.zIndex = this.style.zIndex;
     }
   }
   disconnectedCallback() {
