@@ -1,0 +1,66 @@
+body{
+	background-image: 
+	linear-gradient(to right, #f0e8e8 1px, transparent 1px), 
+	linear-gradient(to top, #f0e8e8 1px, transparent 1px);
+	background-size: 20px 20px; 
+	background-color: white;
+}
+h1{
+	font-size: 1.75rem;
+	line-height: 1.5;
+	font-weight: 600;
+	text-align: center;
+	margin-block-end: 2rem;
+}
+.cards {
+	display: grid;
+	grid-template-columns: repeat(auto-fit,minmax(13rem,1fr));
+	gap:1.5rem;
+}
+.card{
+	border:1px dashed;
+	outline: 2px solid transparent;
+	outline-offset: 2px;
+	transition: outline .5s ease-in-out;
+}
+.card:hover,
+.card:focus-within{
+	outline-color:currentColor;
+}
+.card-content{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-flow: column;
+	padding-block: .5rem;
+	color:currentColor;
+	text-decoration:none;
+	border-bottom:1px dashed;
+	outline: none ;
+}
+.card-media{
+	padding:6px;
+}
+.card img{
+	inline-size: 100%;
+	aspect-ratio: 1;
+	object-fit: cover;
+	display: block;
+
+	/* mask-image: url(images/mask-img.jpg);
+	mask-size: 100%;
+	mask-position: center;
+	mask-repeat: no-repeat;
+	 */
+
+	mask:url(images/2174691.svg) center / 100% no-repeat;
+	mask-mode:alpha;
+	transition: mask-size .75s ease-in-out;
+	transition-delay: .25s;
+}
+
+.card:hover img,
+.card:focus-within img{
+	mask-size:200%;
+	transition-delay:0s;
+}

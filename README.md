@@ -31,3 +31,5 @@
 <img src="./Projects/perzi.png">
 ## Web component  with temaplate
 <img src="./Projects/Web component with template.png">
+## CSS Mask Reveal Animation
+<img src="./Projects/mask-reveal-animation.png">
