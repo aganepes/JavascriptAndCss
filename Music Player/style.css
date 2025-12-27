@@ -13,6 +13,7 @@ body {
   background-image: url(public/music/azat_donmezow.jpg);
   background-size: cover;
   background-position: center;
+	transition: background .5s ease-in-out;
 }
 .wrapper {
   position: absolute;
@@ -31,6 +32,17 @@ body {
   width: 360px;
   user-select: none;
   box-shadow: 3px 3px 6px #b9b9b9, -3px -3px 6px #ffffff;
+	animation: slideUp .5s ease-in-out .2s;
+}
+@keyframes slideUp {
+  from {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 .music-image {
   width: 250px;
@@ -43,13 +55,32 @@ body {
   justify-content: center;
   box-shadow: 0 0 10px black;
   cursor: pointer;
+	transform: scale(1);
+	transition: all 1s ease-in-out;
+	animation: slideUpImg 1s ease-in-out .7s;
 }
 .music-image:hover {
   box-shadow: 0 0 15px black;
+	transform: scale(1.05);
+}
+@keyframes slideUpImg {
+  0% {
+    transform: translateY(0);
+  }
+	50% {
+    transform: translateY(-40px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.imgBlur{
+	filter: blur(5px);
 }
 .album-art {
   width: auto;
   height: 100%;
+	
 }
 .player-container {
   padding: 1rem;
@@ -87,22 +118,33 @@ body {
 }
 .process {
   height: 6px;
-  background-color: gray;
-  border: 1px solid transparent;
+  background-color: #355C6B;
   border-radius: 5px;
   margin-bottom: 0.5rem;
   cursor: pointer;
   position: relative;
+	transition: box-shadow .5s ease-in-out;
 }
 .process:hover {
-  border-color: rgb(59, 59, 59);
+	box-shadow: 0 0 5px 2px #86ceeb;
 }
 .process-bar-fill {
-  height: 5px;
+  height: 6px;
   width: 0.5%;
   border-radius: 5px;
   position: absolute;
-  background-color: #080c07;
+  background-color: #4dbee4;
+	position:relative;
+}
+.process-bar-fill::after{
+	content: "";
+	width:20px;
+	height:20px;
+	border-radius: 50%;
+	background-color: #5DD4FC;
+	position: absolute;
+	right:0;
+	top:-7px;
 }
 .play-icons {
   display: flex;

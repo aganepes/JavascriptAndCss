@@ -77,6 +77,11 @@ progress.addEventListener("click", (e) => {
   audio.currentTime = (clickX / width) * duration;
 });
 
+function addBlur() {
+	musicImage.classList.add('imgBlur');
+	setTimeout(()=>musicImage.classList.remove('imgBlur'),500);
+}
+
 function nextSong() {
   songIndex++;
   if (songIndex > songs.length - 1) {
@@ -86,6 +91,8 @@ function nextSong() {
   audio.play();
   playButton.classList.add("not_show");
   pauseButton.classList.remove("not_show");
+	// add animation
+	addBlur();
 }
 
 audio.addEventListener("ended", nextSong);
@@ -101,5 +108,7 @@ function prevSong() {
 
   playButton.classList.add("not_show");
   pauseButton.classList.remove("not_show");
+	// add animation
+	addBlur();
 }
 prevButton.addEventListener("click", prevSong);
