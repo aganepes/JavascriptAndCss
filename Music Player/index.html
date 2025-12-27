@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="public/icons/motion_play.svg" type="image/svg">
+	<title>Music player && "Häzirki zaman" okuw merkezi </title>
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+	<div class="wrapper">
+		<div class="container">
+			<div class="music-image">
+				<img src="public/music/azat_donmezow.jpg" class="album-art">
+			</div>
+			<div class="player-container">
+				<div class="text-content">
+					<p class="music-name">on the floor it</p>
+					<span class="music-author">Azat Dönmezow</span>
+				</div>
+				<div class="process-container">
+					<div class="music-times">
+						<span class="music-current-time">00:00</span>
+						<span class="music-duration">01:51</span>
+					</div>
+					<div class="process" id="process">
+						<div class="process-bar-fill"></div>
+					</div>
+				</div>
+				<div class="play-icons">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="#56585D" title="Rewind" class="icon icon-rewind" id="btn-rewind">
+						<path d="M860-240 500-480l360-240v480Zm-400 0L100-480l360-240v480Z" />
+					</svg>
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" title="Play"  fill="#56585D" id="btn-play" class="icon icon-play">
+						<path d="M320-200v-560l440 280-440 280Z" />
+					</svg>
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" title="Pause" fill="#56585D" class="icon icon-pause not_show" id="btn-pause">
+						<path d="M560-200v-560h160v560H560Zm-320 0v-560h160v560H240Z" />
+					</svg>
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" title="Forward" fill="#56585D" class="icon icon-forward" id="btn-forward">
+						<path d="M100-240v-480l360 240-360 240Zm400 0v-480l360 240-360 240Z" />
+					</svg>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="script.js" type="module"></script>
+</body>
+
+</html>

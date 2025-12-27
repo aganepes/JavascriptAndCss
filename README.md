@@ -33,3 +33,6 @@
 <img src="./Projects/Web component with template.png">
 ## CSS Mask Reveal Animation
 <img src="./Projects/mask-reveal-animation.png">
+
+## Music Player
+<img src="./Projects/music_player.png">

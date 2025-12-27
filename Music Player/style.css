@@ -1,0 +1,127 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+img {
+  width: 100px;
+}
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-image: url(public/music/azat_donmezow.jpg);
+  background-size: cover;
+  background-position: center;
+}
+.wrapper {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.514);
+  backdrop-filter: blur(20px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 80px;
+}
+.container {
+  background-color: #fcfcfc;
+  border-radius: 10px;
+  width: 360px;
+  user-select: none;
+  box-shadow: 3px 3px 6px #b9b9b9, -3px -3px 6px #ffffff;
+}
+.music-image {
+  width: 250px;
+  height: 300px;
+  border-radius: 10px;
+  margin: -20% auto;
+  margin-bottom: 0;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  box-shadow: 0 0 10px black;
+  cursor: pointer;
+}
+.music-image:hover {
+  box-shadow: 0 0 15px black;
+}
+.album-art {
+  width: auto;
+  height: 100%;
+}
+.player-container {
+  padding: 1rem;
+}
+.text-content {
+  padding-top: 1.5rem;
+  text-align: center;
+}
+.music-name {
+  text-transform: capitalize;
+  font-size: 1.5rem;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  color: rgb(14, 6, 6);
+  margin-bottom: 0.5rem;
+}
+.music-author {
+  color: rgb(171, 172, 172);
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+.process-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.music-times {
+  padding-top: 0.5rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  color: rgb(107, 105, 105);
+  font-size: 0.9rem;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+.process {
+  height: 6px;
+  background-color: gray;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+  position: relative;
+}
+.process:hover {
+  border-color: rgb(59, 59, 59);
+}
+.process-bar-fill {
+  height: 5px;
+  width: 0.5%;
+  border-radius: 5px;
+  position: absolute;
+  background-color: #080c07;
+}
+.play-icons {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem;
+}
+.play-icons .icon {
+  cursor: pointer;
+  width: 50px;
+  transition: fill 0.5s ease-in-out;
+}
+.play-icons .icon-rewind,
+.play-icons .icon-forward {
+  width: 40px;
+}
+.play-icons .icon:hover {
+  fill: #030803ff;
+}
+.not_show {
+  display: none;
+}
