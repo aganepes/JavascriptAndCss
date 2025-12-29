@@ -54,17 +54,17 @@ audio.addEventListener("timeupdate", () => {
     .padStart(2, "0")}`;
 });
 
-playButton.addEventListener("click", () => {
+playButton.addEventListener("click", async () => {
   playButton.classList.add("not_show");
   pauseButton.classList.remove("not_show");
   // music to play
-  audio.play();
+  await audio.play();
 });
-pauseButton.addEventListener("click", () => {
+pauseButton.addEventListener("click", async() => {
   pauseButton.classList.add("not_show");
   playButton.classList.remove("not_show");
   // music to pause
-  audio.pause();
+ 	audio.pause();
 });
 
 progress.addEventListener("click", (e) => {
@@ -79,32 +79,32 @@ progress.addEventListener("click", (e) => {
 
 function addBlur() {
 	musicImage.classList.add('imgBlur');
-	setTimeout(()=>musicImage.classList.remove('imgBlur'),500);
+	setTimeout(()=>musicImage.classList.remove('imgBlur'),700);
 }
 
-function nextSong() {
+async function nextSong() {
+	// add animation
+	addBlur();
   songIndex++;
   if (songIndex > songs.length - 1) {
     songIndex = 0;
   }
   loadSong(songs[songIndex]);
-  audio.play();
+  await audio.play();
   playButton.classList.add("not_show");
   pauseButton.classList.remove("not_show");
-	// add animation
-	addBlur();
 }
 
 audio.addEventListener("ended", nextSong);
 nextButton.addEventListener("click", nextSong);
 
-function prevSong() {
+async function prevSong() {
   songIndex--;
   if (songIndex < 0) {
     songIndex = songs.length - 1;
   }
   loadSong(songs[songIndex]);
-  audio.play();
+  await audio.play();
 
   playButton.classList.add("not_show");
   pauseButton.classList.remove("not_show");
