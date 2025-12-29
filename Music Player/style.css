@@ -141,7 +141,7 @@ body {
 	border-radius: 50%;
 	background-color: #5DD4FC;
 	position: absolute;
-	right:0;
+	right:-8px;
 	top:-7px;
 }
 .play-icons {
