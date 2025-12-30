@@ -17,7 +17,7 @@ body {
   position: absolute;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.514);
+  background-color: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(20px);
   display: flex;
   justify-content: center;
@@ -25,11 +25,11 @@ body {
   padding-top: 80px;
 }
 .container {
-  background-color: #fcfcfc;
+  background-color: rgb(252, 252, 252);
   border-radius: 10px;
   width: 360px;
   user-select: none;
-  box-shadow: 3px 3px 6px #b9b9b9, -3px -3px 6px #ffffff;
+  box-shadow: 3px 3px 6px rgb(185, 185, 185), -3px -3px 6px white;
 	animation: slideUp .5s ease-in-out .2s;
 }
 @keyframes slideUp {
@@ -75,11 +75,6 @@ body {
 .imgBlur{
 	filter: blur(5px);
 }
-.album-art {
-  width: auto;
-  height: 100%;
-	
-}
 .player-container {
   padding: 1rem;
 }
@@ -107,7 +102,6 @@ body {
 }
 .music-times {
   padding-top: 0.5rem;
-  width: 100%;
   display: flex;
   justify-content: space-between;
   color: rgb(107, 105, 105);
@@ -116,7 +110,7 @@ body {
 }
 .process {
   height: 6px;
-  background-color: #355C6B;
+  background-color: rgb(53, 92, 107);
   border-radius: 5px;
   margin-bottom: 0.5rem;
   cursor: pointer;
@@ -124,14 +118,14 @@ body {
 	transition: box-shadow .5s ease-in-out;
 }
 .process:hover {
-	box-shadow: 0 0 5px 2px #86ceeb;
+	box-shadow: 0 0 5px 2px rgb(134, 206, 235);
 }
 .process-bar-fill {
   height: 6px;
   width: 0.5%;
   border-radius: 5px;
   position: absolute;
-  background-color: #4dbee4;
+  background-color: rgb(77, 190, 228);
 	position:relative;
 }
 .process-bar-fill::after{
@@ -139,7 +133,7 @@ body {
 	width:20px;
 	height:20px;
 	border-radius: 50%;
-	background-color: #5DD4FC;
+	background-color: rgb(93, 212, 252);
 	position: absolute;
 	right:-8px;
 	top:-7px;
@@ -160,7 +154,7 @@ body {
   width: 40px;
 }
 .play-icons .icon:hover {
-  fill: #030803ff;
+  fill: rgb(3, 8, 3);
 }
 .not_show {
   display: none;
